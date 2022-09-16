@@ -1,11 +1,18 @@
 import json
+from datetime import date
 
-file_name = r"data/users.json"
+
+def get_json(path) -> list:
+    """ Open json file and get list with Data"""
+    with open(path, 'r', encoding='utf-8') as file:
+        return json.load(file)
 
 
-def load_file(file_name: str) -> list:
-    with open(file_name, "r", encoding="utf-8") as file:
-        data = json.load(file)
-        return data
+def convert_to_date(item):
+    """ transformation str-object to date format"""
+    key = item.split('/')
+    result = date(int(key[2]), int(key[0]), int(key[1]))
+    return result
+
 
 
