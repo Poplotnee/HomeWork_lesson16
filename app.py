@@ -6,7 +6,6 @@ from constants import USERS_PATCH, ORDERS_PATCH, OFFERS_PATCH
 from utils import get_json, convert_to_date
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
 
@@ -88,12 +87,10 @@ class Offer(db.Model):
         }
 
 
-db.drop_all()
+# db.drop_all()
 db.create_all()
 
 
-#
-#
 def creating_user_instances():
     users_list = []
     for i in get_json(USERS_PATCH):
