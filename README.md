@@ -1,4 +1,3 @@
-# HomeWork_lesson16
 app.py - flask application
 data - json files and sqllite database
 requirements.txt - dependencies
